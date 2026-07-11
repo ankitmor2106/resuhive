@@ -1,0 +1,60 @@
+<svg 
+  viewBox="10 0 124 124" 
+  width="100%" 
+  height="100%" 
+  fill="none" 
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <defs>
+    <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#a855f7" />
+      <stop offset="100%" stop-color="#3b82f6" />
+    </linearGradient>
+  </defs>
+
+  <path
+    d="M 30,20 
+       L 80,20 
+       Q 90,20 90,30 
+       L 90,90 
+       L 60,120 
+       L 30,120 
+       Q 20,120 20,110 
+       L 20,30 
+       Q 20,20 30,20 Z"
+    stroke="url(#logoGrad)"
+    stroke-width="6"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  />
+
+  <path
+    d="M 88,91 L 68,91 Q 61,91 61,98 L 61,118 L 88,91 Z"
+    fill="url(#logoGrad)"
+  />
+
+  <circle cx="45" cy="45" r="8" fill="url(#logoGrad)" />
+  <path d="M 32,62 C 32,54 58,54 58,62 Z" fill="url(#logoGrad)" />
+
+  <rect x="65" y="40" width="16" height="4" rx="2" fill="url(#logoGrad)" />
+  <rect x="65" y="50" width="10" height="4" rx="2" fill="url(#logoGrad)" />
+
+  <circle cx="34" cy="77" r="3.5" fill="url(#logoGrad)" />
+  <rect x="43" y="75" width="38" height="4" rx="2" fill="url(#logoGrad)" />
+  
+  <circle cx="34" cy="91" r="3.5" fill="url(#logoGrad)" />
+  <rect x="43" y="89" width="38" height="4" rx="2" fill="url(#logoGrad)" />
+
+  <circle cx="34" cy="105" r="3.5" fill="url(#logoGrad)" />
+  <rect x="43" y="103" width="15" height="4" rx="2" fill="url(#logoGrad)" />
+
+  <path
+    d="M 98,4 Q 98,22 116,22 Q 98,22 98,40 Q 98,22 80,22 Q 98,22 98,4 Z"
+    fill="url(#logoGrad)"
+  />
+  
+  <path
+    d="M 120,5 Q 120,13 128,13 Q 120,13 120,21 Q 120,13 112,13 Q 120,13 120,5 Z"
+    fill="url(#logoGrad)"
+  />
+</svg>

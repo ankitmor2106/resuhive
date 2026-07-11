@@ -1,0 +1,176 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+enum AuthProvider {
+  EMAIL
+  GOOGLE
+}
+
+model User {
+  id               String         @id @default(uuid())
+  email            String         @unique
+  passwordHash     String?
+  firstName        String?
+  lastName         String?
+  dateOfBirth      DateTime?
+  occupation       String?
+  experience       String?
+  skills           Json?
+  authProvider     AuthProvider   @default(EMAIL)
+  googleId         String?        @unique
+  profileCompleted Boolean        @default(false)
+  createdAt        DateTime       @default(now())
+  updatedAt        DateTime       @updatedAt
+  resumes          Resume[]
+  refreshTokens    RefreshToken[]
+  passwordResetTokens PasswordResetToken[]
+}
+
+model PasswordResetToken {
+  id        String   @id @default(uuid())
+  tokenHash String   @unique
+  expiresAt DateTime
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+model RefreshToken {
+  id        String   @id @default(uuid())
+  token     String   @unique
+  expiresAt DateTime
+  userId    String
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  createdAt DateTime @default(now())
+}
+
+enum ResumeStatus {
+  DRAFT
+  ACTIVE
+  ARCHIVED
+}
+
+model Resume {
+  id     String       @id @default(uuid())
+  userId String
+  user   User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  title  String       @default("Untitled Resume")
+  status ResumeStatus @default(DRAFT)
+
+  templateId           String?      @default("classic")
+  professionalSummary  String?      @db.Text
+  sectionOrder         Json?
+
+  // Section data stored as JSON to match 10 schemas
+  personalInfo   Json?
+  experience     Json?
+  education      Json?
+  projects       Json?
+  skills         Json?
+  certifications Json?
+  achievements   Json?
+  positions      Json?
+  languages      Json?
+  interests      Json?
+  custom         Json?
+  theme          Json?
+
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
+  deletedAt DateTime?
+
+  atsAnalysis   ATSAnalysis[]
+  jdMatches     JDMatch[]
+  aiSuggestions AISuggestion[]
+  exports       Export[]
+
+  @@index([userId])
+  @@index([updatedAt])
+}
+
+model ATSAnalysis {
+  id         String   @id @default(uuid())
+  resumeId   String
+  resume     Resume   @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  totalScore Int
+  breakdown  Json // Structure, Skills, Experience, Keywords, Readability
+  issueCount Int      @default(0)
+  createdAt  DateTime @default(now())
+
+  @@index([resumeId])
+}
+
+model JDMatch {
+  id              String   @id @default(uuid())
+  resumeId        String
+  resume          Resume   @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  jobDescription  String
+  matchPercentage Int
+  missingSkills   Json // Array of strings
+  gaps            Json // Array of strings
+  improvements    Json // Array of strings
+  createdAt       DateTime @default(now())
+
+  @@index([resumeId])
+}
+
+enum SuggestionType {
+  SUMMARY
+  REWRITE
+  GRAMMAR
+  ACHIEVEMENT
+  BULLET
+}
+
+enum SuggestionStatus {
+  PENDING
+  ACCEPTED
+  REJECTED
+}
+
+model AISuggestion {
+  id            String           @id @default(uuid())
+  resumeId      String
+  resume        Resume           @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  type          SuggestionType
+  originalText  String?
+  suggestedText String
+  status        SuggestionStatus @default(PENDING)
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
+
+  @@index([resumeId])
+}
+
+enum ExportStatus {
+  PENDING
+  GENERATING
+  READY
+  FAILED
+}
+
+model Export {
+  id        String       @id @default(uuid())
+  resumeId  String
+  resume    Resume       @relation(fields: [resumeId], references: [id], onDelete: Cascade)
+  status    ExportStatus @default(PENDING)
+  fileUrl   String?
+  createdAt DateTime     @default(now())
+  updatedAt DateTime     @updatedAt
+
+  @@index([resumeId])
+}
+
+model ContactMessage {
+  id        String   @id @default(uuid())
+  topic     String
+  email     String
+  name      String
+  message   String   @db.Text
+  createdAt DateTime @default(now())
+}

@@ -1,0 +1,7 @@
+{
+  "/page": "app/page.js",
+  "/(app)/dashboard/page": "app/(app)/dashboard/page.js",
+  "/(auth)/login/page": "app/(auth)/login/page.js",
+  "/(auth)/auth/google/callback/page": "app/(auth)/auth/google/callback/page.js",
+  "/(app)/resume/[resumeId]/builder/page": "app/(app)/resume/[resumeId]/builder/page.js"
+}

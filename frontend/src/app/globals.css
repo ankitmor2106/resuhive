@@ -1,0 +1,212 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  /* Typography */
+  --font-sans: var(--font-ibm-plex-sans), 'IBM Plex Sans', system-ui, sans-serif;
+  --font-serif: var(--font-source-serif), 'Source Serif 4', Georgia, serif;
+  --font-mono: var(--font-ibm-plex-mono), 'IBM Plex Mono', 'Courier New', monospace;
+  --font-inter: var(--font-inter), 'Inter', sans-serif;
+  --font-playfair: var(--font-playfair-display), 'Playfair Display', serif;
+  --font-roboto: var(--font-roboto), 'Roboto', sans-serif;
+  --font-lora: var(--font-lora), 'Lora', serif;
+
+  /* Border radius */
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* shadcn color mappings */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  /* Semantic brand colors (accessible as Tailwind classes) */
+  --color-pine: var(--pine);
+  --color-pine-foreground: var(--pine-foreground);
+  --color-ochre: var(--ochre);
+  --color-ochre-foreground: var(--ochre-foreground);
+  --color-brick: var(--brick);
+  --color-brick-foreground: var(--brick-foreground);
+  --color-mist: var(--mist);
+  --color-paper: var(--paper);
+  --color-ink: var(--ink);
+}
+
+/* ======================================================
+   LIGHT MODE
+   paper  #F3F5F1  cool off-white background
+   ink    #14181C  primary text
+   pine   #1E4B3D  deterministic computed results
+   ochre  #B8862B  AI-touched surfaces
+   brick  #A63D2F  errors / gaps / missing
+   mist   #E4E7E2  borders, dividers, subtle surfaces
+   ====================================================== */
+:root {
+  --radius: 0.5rem;
+
+  /* Named brand colors */
+  --paper: hsl(90, 14%, 95%);     /* #F3F5F1 */
+  --ink: hsl(210, 16%, 9%);       /* #14181C */
+  --pine: hsl(162, 43%, 20%);     /* #1E4B3D */
+  --pine-foreground: hsl(90, 14%, 95%);
+  --ochre: hsl(37, 61%, 44%);     /* #B8862B */
+  --ochre-foreground: hsl(210, 16%, 9%);
+  --brick: hsl(8, 56%, 41%);      /* #A63D2F */
+  --brick-foreground: hsl(90, 14%, 95%);
+  --mist: hsl(90, 9%, 90%);       /* #E4E7E2 */
+
+  /* shadcn semantic mapping */
+  --background: hsl(90, 14%, 95%);
+  --foreground: hsl(210, 16%, 9%);
+  --card: hsl(0, 0%, 100%);
+  --card-foreground: hsl(210, 16%, 9%);
+  --popover: hsl(0, 0%, 100%);
+  --popover-foreground: hsl(210, 16%, 9%);
+  --primary: hsl(162, 43%, 20%);
+  --primary-foreground: hsl(90, 14%, 95%);
+  --secondary: hsl(90, 9%, 92%);
+  --secondary-foreground: hsl(210, 16%, 9%);
+  --muted: hsl(90, 9%, 92%);
+  --muted-foreground: hsl(210, 10%, 40%);
+  --accent: hsl(90, 9%, 90%);
+  --accent-foreground: hsl(210, 16%, 9%);
+  --destructive: hsl(8, 56%, 41%);
+  --destructive-foreground: hsl(90, 14%, 95%);
+  --border: hsl(90, 9%, 88%);
+  --input: hsl(90, 9%, 88%);
+  --ring: hsl(162, 43%, 20%);
+}
+
+/* ======================================================
+   DARK MODE
+   background #1B211F dark green-gray
+   text       #F3F5F1 (reuse of paper)
+   pine       #3E8368 brightened for contrast
+   ochre      #D4A340 brightened
+   brick      #D2604A brightened
+   ====================================================== */
+.dark {
+  --paper: hsl(158, 10%, 12%);
+  --ink: hsl(90, 14%, 95%);
+  --pine: hsl(162, 36%, 37%);     /* #3E8368 */
+  --pine-foreground: hsl(90, 14%, 95%);
+  --ochre: hsl(37, 65%, 55%);     /* #D4A340 */
+  --ochre-foreground: hsl(210, 16%, 9%);
+  --brick: hsl(8, 60%, 56%);      /* #D2604A */
+  --brick-foreground: hsl(90, 14%, 95%);
+  --mist: hsl(158, 8%, 22%);
+
+  --background: hsl(158, 10%, 12%);
+  --foreground: hsl(90, 14%, 95%);
+  --card: hsl(158, 10%, 15%);
+  --card-foreground: hsl(90, 14%, 95%);
+  --popover: hsl(158, 10%, 15%);
+  --popover-foreground: hsl(90, 14%, 95%);
+  --primary: hsl(162, 36%, 37%);
+  --primary-foreground: hsl(90, 14%, 95%);
+  --secondary: hsl(158, 8%, 22%);
+  --secondary-foreground: hsl(90, 14%, 95%);
+  --muted: hsl(158, 8%, 20%);
+  --muted-foreground: hsl(90, 8%, 65%);
+  --accent: hsl(158, 8%, 22%);
+  --accent-foreground: hsl(90, 14%, 95%);
+  --destructive: hsl(8, 60%, 56%);
+  --destructive-foreground: hsl(90, 14%, 95%);
+  --border: hsl(158, 8%, 24%);
+  --input: hsl(158, 8%, 24%);
+  --ring: hsl(162, 36%, 37%);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  /* Focus rings use pine accent, never stripped */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-ring;
+  }
+}
+
+@layer utilities {
+  /* Resume preview paper — letter aspect ratio with realistic margins */
+  .resume-paper {
+    aspect-ratio: 8.5 / 11;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
+    color: hsl(210, 16%, 9%);
+  }
+
+  /* Plex Mono for numbers and system-measured values */
+  .font-system {
+    font-family: var(--font-mono);
+  }
+
+  /* Ochre surface — AI-touched elements */
+  .surface-ai {
+    background-color: hsl(37, 61%, 44%, 0.08);
+    border-color: hsl(37, 61%, 44%, 0.3);
+  }
+  .dark .surface-ai {
+    background-color: hsl(37, 65%, 55%, 0.1);
+    border-color: hsl(37, 65%, 55%, 0.3);
+  }
+}
+
+@media print {
+  @page {
+    margin: 0;
+    size: letter portrait;
+  }
+
+  body * {
+    visibility: hidden;
+  }
+
+  /* Make the print-area and all its children visible */
+  .print-area, .print-area * {
+    visibility: visible;
+  }
+
+  .print-area {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+  }
+  
+  .resume-paper {
+    width: 100% !important;
+    height: auto !important;
+    max-width: none !important;
+    aspect-ratio: auto !important; /* Let content dictate height for printing */
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 2rem !important; /* Use print-friendly padding */
+  }
+}
