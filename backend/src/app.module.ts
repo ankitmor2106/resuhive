@@ -5,16 +5,16 @@ import { ThrottlerModule } from '@nestjs/throttler';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { PrismaModule } from './prisma/prisma.module';
-import { AuthModule } from './auth/auth.module';
-import { UsersModule } from './users/users.module';
-import { ResumesModule } from './resumes/resumes.module';
-import { AnalysisModule } from './analysis/analysis.module';
-import { AiModule } from './ai/ai.module';
-import { ExportsModule } from './exports/exports.module';
-import { TemplatesModule } from './templates/templates.module';
-import { MailModule } from './mail/mail.module';
-import { ContactModule } from './contact/contact.module';
-import { StorageModule } from './storage/storage.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { UsersModule } from './modules/users/users.module';
+import { ResumesModule } from './modules/resumes/resumes.module';
+import { AnalysisModule } from './modules/analysis/analysis.module';
+import { AiModule } from './modules/ai/ai.module';
+import { ExportsModule } from './modules/exports/exports.module';
+import { TemplatesModule } from './modules/templates/templates.module';
+import { MailModule } from './modules/mail/mail.module';
+import { ContactModule } from './modules/contact/contact.module';
+import { StorageModule } from './modules/storage/storage.module';
 
 @Module({
   imports: [

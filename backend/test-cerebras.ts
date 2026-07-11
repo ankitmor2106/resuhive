@@ -1,5 +1,5 @@
 import { ConfigService } from '@nestjs/config';
-import { CerebrasProvider } from './src/ai/providers/cerebras.provider';
+import { CerebrasProvider } from './src/modules/ai/providers/cerebras.provider';
 
 async function test() {
   const config = new ConfigService({ CEREBRAS_API_KEY: process.env.CEREBRAS_API_KEY });
