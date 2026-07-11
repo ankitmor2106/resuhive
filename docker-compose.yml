@@ -10,7 +10,7 @@ services:
     ports:
       - "3001:3001"
     environment:
-      - DATABASE_URL=postgresql://postgres:ankit@resumate@db.xpyadeetgcozdpdgkypz.supabase.co:5432/postgres
+      - DATABASE_URL=postgresql://postgres:ankit%40resumate@db.xpyadeetgcozdpdgkypz.supabase.co:5432/postgres
       - JWT_SECRET=super_secret_jwt_key_please_change
       - FRONTEND_URL=https://your-vercel-frontend-url.vercel.app
       - S3_BUCKET=your_s3_bucket
