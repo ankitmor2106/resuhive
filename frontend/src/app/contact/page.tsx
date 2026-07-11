@@ -76,7 +76,7 @@ export default function ContactPage() {
                 </div>
                 <div>
                   <div className="text-sm opacity-70">Email us at</div>
-                  <div className="font-semibold text-lg">support@skillsync.com</div>
+                  <div className="font-semibold text-lg">support@resuhive.com</div>
                 </div>
               </div>
               

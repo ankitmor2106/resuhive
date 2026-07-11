@@ -1,6 +1,6 @@
-# SkillSync
+# ResuHive
 
-SkillSync is a modern, full-stack resume builder application designed to help users create professional, ATS-friendly resumes with ease. The platform features an intuitive drag-and-drop interface, real-time live previews, and a variety of beautifully designed templates.
+ResuHive is a modern, full-stack resume builder application designed to help users create professional, ATS-friendly resumes with ease. The platform features an intuitive drag-and-drop interface, real-time live previews, and a variety of beautifully designed templates.
 
 ## 🚀 Features
 
@@ -41,7 +41,7 @@ SkillSync is a modern, full-stack resume builder application designed to help us
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd SkillSync
+   cd ResuHive
    ```
 
 2. **Backend Setup**

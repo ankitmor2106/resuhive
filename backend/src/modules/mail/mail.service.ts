@@ -36,7 +36,7 @@ export class MailService {
       return false;
     }
 
-    const from = this.configService.get<string>('SMTP_FROM') || 'SkillSync <noreply@skillsync.app>';
+    const from = this.configService.get<string>('SMTP_FROM') || 'ResuHive <noreply@resuhive.app>';
 
     const html = `
       <!DOCTYPE html>
@@ -48,7 +48,7 @@ export class MailService {
         <body style="margin:0;padding:0;background-color:#f3f5f1;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
           <div style="max-width:560px;margin:40px auto;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,0.08);">
             <div style="background:#1E4B3D;padding:32px 40px;">
-              <h1 style="margin:0;color:#ffffff;font-size:24px;font-weight:600;">SkillSync</h1>
+              <h1 style="margin:0;color:#ffffff;font-size:24px;font-weight:600;">ResuHive</h1>
             </div>
             <div style="padding:40px;">
               <h2 style="margin:0 0 16px;color:#14181C;font-size:20px;font-weight:600;">Reset Your Password</h2>
@@ -76,7 +76,7 @@ export class MailService {
       await this.transporter.sendMail({
         from,
         to,
-        subject: 'Reset your SkillSync password',
+        subject: 'Reset your ResuHive password',
         html,
       });
       this.logger.log(`Password reset email sent to ${to}`);
@@ -93,7 +93,7 @@ export class MailService {
       return false;
     }
 
-    const from = this.configService.get<string>('SMTP_FROM') || 'SkillSync <noreply@skillsync.app>';
+    const from = this.configService.get<string>('SMTP_FROM') || 'ResuHive <noreply@resuhive.app>';
     // We send this to the admin email, or default to the sender if not configured
     const to = this.configService.get<string>('SMTP_ADMIN_EMAIL') || from;
 
