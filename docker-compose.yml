@@ -5,7 +5,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    container_name: resumate_backend
+    container_name: skillsync_backend
     restart: always
     ports:
       - "3001:3001"

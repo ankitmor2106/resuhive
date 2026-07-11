@@ -50,7 +50,7 @@ const lora = Lora({
 })
 
 export const metadata: Metadata = {
-  title: 'Resumate',
+  title: 'SkillSync',
   description:
     'Build ATS-friendly resumes and check them against real job descriptions.',
 }

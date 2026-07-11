@@ -22,7 +22,7 @@ export function GlobalFooter() {
               <div className="bg-pine rounded-md p-1 transition-transform group-hover:scale-105">
                 <FileText className="h-4 w-4 text-white" />
               </div>
-              <span className="font-serif font-bold text-lg tracking-tight text-ink">Resumate<span className="text-pine">.</span></span>
+              <span className="font-serif font-bold text-lg tracking-tight text-ink">SkillSync<span className="text-pine">.</span></span>
             </Link>
             <p className="text-sm text-muted-foreground mb-4">
               Build ATS-friendly resumes and get hired faster with AI-powered insights.
@@ -73,7 +73,7 @@ export function GlobalFooter() {
 
         <div className="border-t border-border/40 pt-8 flex flex-col md:flex-row justify-center items-center gap-4">
           <p className="text-sm text-muted-foreground">
-            © {new Date().getFullYear()} Resumate. All rights reserved.
+            © {new Date().getFullYear()} SkillSync. All rights reserved.
           </p>
         </div>
       </div>

@@ -1,6 +1,6 @@
-# Resumate
+# SkillSync
 
-Resumate is a modern, full-stack resume builder application designed to help users create professional, ATS-friendly resumes with ease. The platform features an intuitive drag-and-drop interface, real-time live previews, and a variety of beautifully designed templates.
+SkillSync is a modern, full-stack resume builder application designed to help users create professional, ATS-friendly resumes with ease. The platform features an intuitive drag-and-drop interface, real-time live previews, and a variety of beautifully designed templates.
 
 ## 🚀 Features
 
@@ -41,7 +41,7 @@ Resumate is a modern, full-stack resume builder application designed to help use
 1. **Clone the repository**
    ```bash
    git clone <repository-url>
-   cd Resumate
+   cd SkillSync
    ```
 
 2. **Backend Setup**
