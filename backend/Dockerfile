@@ -1,4 +1,4 @@
-FROM node:18-alpine AS builder
+FROM node:22-alpine AS builder
 
 # Install necessary libraries for Puppeteer to run in Alpine
 RUN apk add --no-cache \
@@ -24,7 +24,7 @@ RUN npx prisma generate
 RUN npm run build
 
 # Production image
-FROM node:18-alpine
+FROM node:22-alpine
 
 # Install necessary libraries for Puppeteer in production
 RUN apk add --no-cache \
