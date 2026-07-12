@@ -1,20 +1,22 @@
 version: '3.8'
 
 services:
+  redis:
+    image: redis:alpine
+    container_name: resuhive_redis
+    restart: always
+    ports:
+      - "6379:6379"
+
   backend:
     image: ghcr.io/ankitmor2106/resuhive:latest
     container_name: resuhive_backend
     restart: always
     ports:
       - "3001:3001"
+    env_file:
+      - .env
     environment:
-      - DATABASE_URL=postgresql://postgres.xpyadeetgcozdpdgkypz:ankit%40resumate@aws-1-ap-south-1.pooler.supabase.com:5432/postgres
-      - JWT_SECRET=super_secret_jwt_key_please_change
-      - JWT_REFRESH_SECRET=super_secret_refresh_key_please_change
-      - GOOGLE_CALLBACK_URL=https://your-vercel-frontend-url.vercel.app/api/v1/auth/google/callback
-      - GEMINI_API_KEY=dummy_gemini_key_for_startup
-      - FRONTEND_URL=https://your-vercel-frontend-url.vercel.app
-      - S3_BUCKET=your_s3_bucket
-      - AWS_REGION=your_aws_region
-      - AWS_ACCESS_KEY_ID=your_access_key
-      - AWS_SECRET_ACCESS_KEY=your_secret_key
+      - REDIS_HOST=redis
+    depends_on:
+      - redis
