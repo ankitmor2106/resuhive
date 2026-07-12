@@ -187,3 +187,10 @@ model UserFeedback {
   @@index([userId])
 }
 
+model PlatformStats {
+  id            String   @id @default("global")
+  averageRating Float    @default(0)
+  totalRatings  Int      @default(0)
+  updatedAt     DateTime @updatedAt
+}
+
