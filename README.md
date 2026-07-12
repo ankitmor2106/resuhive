@@ -8,6 +8,8 @@ ResuHive is a modern, full-stack resume builder application designed to help use
 - **Drag & Drop Builder**: Easily reorder sections (Experience, Education, Skills, etc.) with a smooth drag-and-drop interface.
 - **Professional Templates**: Choose from a wide variety of beautifully crafted templates, ranging from classic corporate styles to modern, creative layouts.
 - **PDF Export**: Generate high-quality, ATS-friendly PDFs of your resume instantly.
+- **AI-Powered Features**: Get AI suggestions, ATS scoring, and Job Description matching directly within the builder.
+- **User Feedback System**: Users can rate their experience and provide feedback, which is aggregated daily via automated background cron jobs.
 - **Authentication**: Secure login and registration powered by JWT and Google OAuth.
 - **Data Persistence**: Autosave functionality ensures you never lose your progress.
 - **Responsive Design**: A sleek, accessible UI built with Tailwind CSS.
