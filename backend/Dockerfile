@@ -53,4 +53,4 @@ COPY --from=builder /app/prisma.config.ts ./
 EXPOSE 3001
 
 # Command to run migrations and start the server
-CMD ["sh", "-c", "npx prisma migrate deploy && node dist/main.js"]
+CMD ["sh", "-c", "npx prisma migrate deploy && node dist/src/main.js"]
