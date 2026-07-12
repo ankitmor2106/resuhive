@@ -1,4 +1,4 @@
-import { Controller, Post, Param, Body, UseGuards } from '@nestjs/common';
+import { Controller, Post, Param, Body, UseGuards, Get } from '@nestjs/common';
 import { AnalysisService } from './analysis.service';
 import { MatchJDDto } from './dto/analysis.dto';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
@@ -14,6 +14,7 @@ export class AnalysisController {
     @Param('resumeId') resumeId: string,
     @CurrentUser() user: { userId: string }
   ) {
+    // Note: Internally dispatched to BullMQ but waits for completion to maintain frontend contract
     return this.analysisService.analyzeResume(resumeId, user.userId);
   }
 
@@ -23,6 +24,7 @@ export class AnalysisController {
     @CurrentUser() user: { userId: string },
     @Body() dto: MatchJDDto
   ) {
+    // Note: Internally dispatched to BullMQ but waits for completion to maintain frontend contract
     return this.analysisService.matchJobDescription(resumeId, user.userId, dto);
   }
 }

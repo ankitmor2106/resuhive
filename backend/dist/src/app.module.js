@@ -43,6 +43,7 @@ exports.AppModule = void 0;
 const common_1 = require("@nestjs/common");
 const config_1 = require("@nestjs/config");
 const Joi = __importStar(require("joi"));
+const bullmq_1 = require("@nestjs/bullmq");
 const throttler_1 = require("@nestjs/throttler");
 const app_controller_1 = require("./app.controller");
 const app_service_1 = require("./app.service");
@@ -108,6 +109,16 @@ exports.AppModule = AppModule = __decorate([
             feedback_module_1.FeedbackModule,
             schedule_1.ScheduleModule.forRoot(),
             tasks_module_1.TasksModule,
+            bullmq_1.BullModule.forRootAsync({
+                imports: [config_1.ConfigModule],
+                useFactory: async (configService) => ({
+                    connection: {
+                        host: configService.get('REDIS_HOST', 'localhost'),
+                        port: configService.get('REDIS_PORT', 6379),
+                    },
+                }),
+                inject: [config_1.ConfigService],
+            }),
         ],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
