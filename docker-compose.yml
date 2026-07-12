@@ -2,7 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    image: ghcr.io/ankitmor2106/resumate:latest
+    image: ghcr.io/ankitmor2106/resuhive:latest
     container_name: resuhive_backend
     restart: always
     ports:
