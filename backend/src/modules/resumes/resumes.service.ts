@@ -165,4 +165,14 @@ export class ResumesService {
       },
     });
   }
+
+  async cleanupAiSuggestions(resumeId: string, userId: string) {
+    // Verify it belongs to the user
+    await this.findOne(resumeId, userId);
+    
+    const result = await this.prisma.aISuggestion.deleteMany({
+      where: { resumeId }
+    });
+    return { success: true, deletedCount: result.count };
+  }
 }

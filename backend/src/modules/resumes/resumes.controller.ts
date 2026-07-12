@@ -60,4 +60,13 @@ export class ResumesController {
   ) {
     return this.resumesService.remove(id, user.userId);
   }
+
+  @Post(':id/cleanup-suggestions')
+  @HttpCode(HttpStatus.OK)
+  cleanupSuggestions(
+    @Param('id') id: string,
+    @CurrentUser() user: { userId: string }
+  ) {
+    return this.resumesService.cleanupAiSuggestions(id, user.userId);
+  }
 }

@@ -77,6 +77,10 @@ export async function deleteResume(id: string): Promise<ApiResponse<null>> {
   return apiClient<null>('DELETE', `/resumes/${id}`)
 }
 
+export async function cleanupAiSuggestions(id: string): Promise<ApiResponse<{ success: boolean, deletedCount: number }>> {
+  return apiClient<{ success: boolean, deletedCount: number }>('POST', `/resumes/${id}/cleanup-suggestions`)
+}
+
 export async function duplicateResume(id: string): Promise<ApiResponse<Resume>> {
   const res = await apiClient<Resume>('POST', `/resumes/${id}/duplicate`)
   if (res.success) {
