@@ -11,6 +11,7 @@ services:
       - DATABASE_URL=postgresql://postgres.xpyadeetgcozdpdgkypz:ankit%40resumate@aws-1-ap-south-1.pooler.supabase.com:5432/postgres
       - JWT_SECRET=super_secret_jwt_key_please_change
       - JWT_REFRESH_SECRET=super_secret_refresh_key_please_change
+      - GOOGLE_CALLBACK_URL=https://your-vercel-frontend-url.vercel.app/api/v1/auth/google/callback
       - GEMINI_API_KEY=dummy_gemini_key_for_startup
       - FRONTEND_URL=https://your-vercel-frontend-url.vercel.app
       - S3_BUCKET=your_s3_bucket

@@ -8,6 +8,14 @@ const devDomains = [
 const nextConfig: NextConfig = {
   // Allow Replit's proxy to access the dev server
   ...(devDomains.length > 0 ? { allowedDevOrigins: devDomains } : {}),
+  async rewrites() {
+    return [
+      {
+        source: '/api/v1/:path*',
+        destination: `${process.env.BACKEND_URL || 'http://localhost:3001/api/v1'}/:path*`, // Proxy to Backend
+      },
+    ]
+  },
 }
 
 export default nextConfig
