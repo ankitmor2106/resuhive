@@ -90,8 +90,8 @@ export function Logo({ className, showText = false, iconClassName, textClassName
       <div className={cn("h-12 w-auto", iconClassName)}>{svg}</div>
       <div className={cn("flex flex-col justify-center", textClassName)}>
         <div className="text-3xl font-extrabold tracking-tight leading-none">
-          <span className="text-foreground">resu</span>
-          <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">mate</span>
+          <span className="text-foreground">Resu</span>
+          <span className="bg-gradient-to-r from-purple-500 to-blue-500 bg-clip-text text-transparent">Hive</span>
         </div>
         <div className="text-[0.6rem] font-bold tracking-[0.3em] text-muted-foreground mt-1 ml-1">
           AI RESUME BUILDER
