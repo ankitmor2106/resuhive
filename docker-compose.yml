@@ -2,9 +2,7 @@ version: '3.8'
 
 services:
   backend:
-    build:
-      context: ./backend
-      dockerfile: Dockerfile
+    image: ghcr.io/ankitmor2106/resumate:latest
     container_name: resuhive_backend
     restart: always
     ports:
