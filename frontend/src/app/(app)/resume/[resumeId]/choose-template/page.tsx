@@ -18,14 +18,8 @@ export default function ChooseTemplatePage({ params }: { params: Promise<{ resum
   const router = useRouter()
 
   const handleChooseTemplate = (templateId: string) => {
-    updateResume.mutate(
-      { id: resumeId, data: { templateId } },
-      {
-        onSuccess: () => {
-          router.push(`/resume/${resumeId}/builder`)
-        }
-      }
-    )
+    updateResume.mutate({ id: resumeId, data: { templateId } })
+    router.push(`/resume/${resumeId}/builder`)
   }
 
   if (isLoading) {

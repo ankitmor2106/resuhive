@@ -67,8 +67,41 @@ export const useUpdateResume = () => {
       }
       return resData
     },
-    onSuccess: (data, variables) => {
-      queryClient.setQueryData(['resume', variables.id], data)
+    onMutate: async ({ id, data }) => {
+      // Cancel any outgoing refetches so they don't overwrite our optimistic update
+      await queryClient.cancelQueries({ queryKey: ['resume', id] })
+
+      // Snapshot the previous value
+      const previousResume = queryClient.getQueryData<Resume>(['resume', id])
+
+      // Optimistically update to the new value
+      queryClient.setQueryData(['resume', id], (old: any) => {
+        if (!old) return old
+        
+        const newData = { ...old }
+        for (const key of Object.keys(data)) {
+          const typedKey = key as keyof Resume
+          if (typeof data[typedKey] === 'object' && !Array.isArray(data[typedKey]) && data[typedKey] !== null) {
+            newData[typedKey] = { ...old[typedKey], ...data[typedKey] }
+          } else {
+            newData[typedKey] = data[typedKey]
+          }
+        }
+        return newData
+      })
+
+      // Return a context object with the snapshotted value
+      return { previousResume }
+    },
+    onError: (err, variables, context) => {
+      // Revert to previous value on error
+      if (context?.previousResume) {
+        queryClient.setQueryData(['resume', variables.id], context.previousResume)
+      }
+    },
+    onSettled: (data, error, variables) => {
+      // Invalidate queries to ensure sync with server
+      queryClient.invalidateQueries({ queryKey: ['resume', variables.id] })
       queryClient.invalidateQueries({ queryKey: ['resumes'] })
     },
   })
