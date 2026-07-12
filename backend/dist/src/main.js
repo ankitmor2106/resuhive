@@ -53,7 +53,7 @@ async function bootstrap() {
     app.useGlobalFilters(new all_exceptions_filter_1.AllExceptionsFilter());
     const configService = app.get(config_1.ConfigService);
     const port = configService.get('PORT', 3001);
-    await app.listen(port);
+    await app.listen(port, '0.0.0.0');
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

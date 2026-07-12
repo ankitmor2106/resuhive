@@ -148,6 +148,16 @@ export class ExportsService {
         }
       }
 
+      // Clean up AI suggestions since the user has finished editing and exported
+      try {
+        await this.prisma.aISuggestion.deleteMany({
+          where: { resumeId }
+        });
+        this.logger.log(`Cleaned up AI suggestions for exported resume ${resumeId}`);
+      } catch (cleanupError) {
+        this.logger.error(`Failed to clean up AI suggestions for resume ${resumeId}`, cleanupError);
+      }
+
       return await this.prisma.export.update({
         where: { id: exportRecord.id },
         data: { 
