@@ -29,6 +29,7 @@ model User {
   resumes          Resume[]
   refreshTokens    RefreshToken[]
   passwordResetTokens PasswordResetToken[]
+  feedbacks        UserFeedback[]
 }
 
 model PasswordResetToken {
@@ -174,3 +175,15 @@ model ContactMessage {
   message   String   @db.Text
   createdAt DateTime @default(now())
 }
+
+model UserFeedback {
+  id        String   @id @default(uuid())
+  userId    String?
+  user      User?    @relation(fields: [userId], references: [id], onDelete: Cascade)
+  rating    Int
+  feedback  String?  @db.Text
+  createdAt DateTime @default(now())
+
+  @@index([userId])
+}
+

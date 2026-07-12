@@ -57,6 +57,7 @@ const templates_module_1 = require("./modules/templates/templates.module");
 const mail_module_1 = require("./modules/mail/mail.module");
 const contact_module_1 = require("./modules/contact/contact.module");
 const storage_module_1 = require("./modules/storage/storage.module");
+const feedback_module_1 = require("./modules/feedback/feedback.module");
 const schedule_1 = require("@nestjs/schedule");
 const tasks_module_1 = require("./modules/tasks/tasks.module");
 let AppModule = class AppModule {
@@ -104,6 +105,7 @@ exports.AppModule = AppModule = __decorate([
             templates_module_1.TemplatesModule,
             contact_module_1.ContactModule,
             storage_module_1.StorageModule,
+            feedback_module_1.FeedbackModule,
             schedule_1.ScheduleModule.forRoot(),
             tasks_module_1.TasksModule,
         ],

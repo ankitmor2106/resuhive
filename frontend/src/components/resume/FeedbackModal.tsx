@@ -4,7 +4,7 @@ import { Button } from '@/components/ui/button'
 import { Textarea } from '@/components/ui/textarea'
 import { Star, Loader2 } from 'lucide-react'
 import { useCurrentUser } from '@/hooks/useAuth'
-import { submitContactForm } from '@/services/contact'
+import { submitUserFeedback } from '@/services/feedback'
 import { cleanupAiSuggestions } from '@/services/resumes'
 import { useRouter } from 'next/navigation'
 
@@ -41,11 +41,9 @@ export function FeedbackModal({ open, onOpenChange, resumeId }: FeedbackModalPro
     
     setIsSubmitting(true);
     try {
-      await submitContactForm({
-        topic: 'Resume Export Feedback',
-        name: user?.fullName || user?.firstName || 'User',
-        email: user?.email || 'unknown@example.com',
-        message: `Rating: ${rating} Stars\nFeedback: ${feedback}`,
+      await submitUserFeedback({
+        rating,
+        feedback,
       });
       await handleComplete();
     } catch (e) {

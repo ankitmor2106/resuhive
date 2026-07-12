@@ -15,6 +15,7 @@ import { TemplatesModule } from './modules/templates/templates.module';
 import { MailModule } from './modules/mail/mail.module';
 import { ContactModule } from './modules/contact/contact.module';
 import { StorageModule } from './modules/storage/storage.module';
+import { FeedbackModule } from './modules/feedback/feedback.module';
 import { ScheduleModule } from '@nestjs/schedule';
 import { TasksModule } from './modules/tasks/tasks.module';
 
@@ -62,6 +63,7 @@ import { TasksModule } from './modules/tasks/tasks.module';
     TemplatesModule,
     ContactModule,
     StorageModule,
+    FeedbackModule,
     ScheduleModule.forRoot(),
     TasksModule,
   ],

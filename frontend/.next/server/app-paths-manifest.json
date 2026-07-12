@@ -1,18 +1,18 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/icon.svg/route": "app/icon.svg/route.js",
-  "/contact/page": "app/contact/page.js",
   "/page": "app/page.js",
-  "/(app)/resume-import/page": "app/(app)/resume-import/page.js",
-  "/(app)/resume/[resumeId]/builder/page": "app/(app)/resume/[resumeId]/builder/page.js",
-  "/(app)/dashboard/page": "app/(app)/dashboard/page.js",
-  "/(app)/resume/[resumeId]/export/page": "app/(app)/resume/[resumeId]/export/page.js",
+  "/contact/page": "app/contact/page.js",
   "/(app)/resume/[resumeId]/analysis/page": "app/(app)/resume/[resumeId]/analysis/page.js",
-  "/(auth)/register/page": "app/(auth)/register/page.js",
+  "/(app)/dashboard/page": "app/(app)/dashboard/page.js",
   "/(app)/resume/[resumeId]/choose-template/page": "app/(app)/resume/[resumeId]/choose-template/page.js",
-  "/(auth)/reset-password/page": "app/(auth)/reset-password/page.js",
-  "/(auth)/forgot-password/page": "app/(auth)/forgot-password/page.js",
+  "/(app)/resume/[resumeId]/export/page": "app/(app)/resume/[resumeId]/export/page.js",
+  "/(app)/resume/[resumeId]/builder/page": "app/(app)/resume/[resumeId]/builder/page.js",
+  "/(app)/resume/[resumeId]/match/page": "app/(app)/resume/[resumeId]/match/page.js",
   "/(auth)/auth/google/callback/page": "app/(auth)/auth/google/callback/page.js",
-  "/(auth)/login/page": "app/(auth)/login/page.js",
-  "/(app)/resume/[resumeId]/match/page": "app/(app)/resume/[resumeId]/match/page.js"
+  "/(app)/resume-import/page": "app/(app)/resume-import/page.js",
+  "/(auth)/forgot-password/page": "app/(auth)/forgot-password/page.js",
+  "/(auth)/reset-password/page": "app/(auth)/reset-password/page.js",
+  "/(auth)/register/page": "app/(auth)/register/page.js",
+  "/(auth)/login/page": "app/(auth)/login/page.js"
 }
