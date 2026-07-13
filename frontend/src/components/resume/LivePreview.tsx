@@ -598,7 +598,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
 
   return (
     <div 
-      className="resume-paper-container w-full h-full"
+      className="resume-paper-container w-full"
       style={primaryColor ? { '--primary-color': primaryColor } as React.CSSProperties : {}}
     >
       {primaryColor && (
