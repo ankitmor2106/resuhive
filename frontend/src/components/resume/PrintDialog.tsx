@@ -99,7 +99,7 @@ export function PrintDialog({ resume, trigger }: { resume: any, trigger: React.R
           </div>
 
           {/* The actual resume sandbox container */}
-          <div className="print-area flex justify-center bg-white shadow-2xl print:shadow-none mx-auto w-fit rounded-sm overflow-hidden border border-slate-200 print:border-none">
+          <div className="print-area flex justify-center bg-white shadow-2xl print:shadow-none mx-auto w-[850px] max-w-full rounded-sm overflow-hidden border border-slate-200 print:border-none">
             <LivePreview resume={resume} />
           </div>
 
