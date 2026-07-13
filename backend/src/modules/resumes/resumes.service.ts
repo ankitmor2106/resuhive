@@ -140,6 +140,15 @@ export class ResumesService {
         console.error('pdfParse error:', err);
         throw new BadRequestException('Failed to parse PDF file.');
       }
+    } else if (file.mimetype === 'application/vnd.openxmlformats-officedocument.wordprocessingml.document' || file.originalname.endsWith('.docx')) {
+      try {
+        const mammoth = require('mammoth');
+        const result = await mammoth.extractRawText({ buffer: file.buffer });
+        text = result.value;
+      } catch (err) {
+        console.error('mammoth error:', err);
+        throw new BadRequestException('Failed to parse DOCX file.');
+      }
     } else {
       text = file.buffer.toString('utf-8');
     }

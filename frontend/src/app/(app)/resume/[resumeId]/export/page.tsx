@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button"
 import { Progress } from "@/components/ui/progress"
 import { Download, Printer, FileText, Loader2, CheckCircle2 } from "lucide-react"
 import { PrintDialog } from "@/components/resume/PrintDialog"
+import { exportToTxt, exportToDocx } from "@/lib/exportUtils"
 
 export default function ExportPage({ params }: { params: Promise<{ resumeId: string }> }) {
   const unwrappedParams = React.use(params)
@@ -50,7 +51,7 @@ export default function ExportPage({ params }: { params: Promise<{ resumeId: str
             </div>
             <CardTitle className="text-xl">Generate PDF</CardTitle>
             <CardDescription className="text-sm">
-              This will open your browser's print dialog. For the best result, ensure <strong>"Background graphics"</strong> is checked and margins are set to <strong>"None"</strong>.
+              Print or save as a variable-length, multi-page PDF.
             </CardDescription>
           </CardHeader>
           <CardContent className="pt-2 pb-8">
@@ -67,6 +68,42 @@ export default function ExportPage({ params }: { params: Promise<{ resumeId: str
             )}
           </CardContent>
         </Card>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6">
+          <Card className="flex flex-col shadow-sm border-mist">
+            <CardHeader className="pb-3 text-center">
+              <CardTitle className="text-lg">Word Document</CardTitle>
+              <CardDescription className="text-xs">Export to an editable .docx file</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => resume && exportToDocx(resume)}
+                disabled={!resume || isLoadingResume}
+              >
+                <FileText className="mr-2 h-4 w-4" /> Download DOCX
+              </Button>
+            </CardContent>
+          </Card>
+          
+          <Card className="flex flex-col shadow-sm border-mist">
+            <CardHeader className="pb-3 text-center">
+              <CardTitle className="text-lg">Plain Text</CardTitle>
+              <CardDescription className="text-xs">Export to a simple .txt file</CardDescription>
+            </CardHeader>
+            <CardContent>
+              <Button 
+                variant="outline" 
+                className="w-full"
+                onClick={() => resume && exportToTxt(resume)}
+                disabled={!resume || isLoadingResume}
+              >
+                <FileText className="mr-2 h-4 w-4" /> Download TXT
+              </Button>
+            </CardContent>
+          </Card>
+        </div>
       </div>
     </div>
   )
