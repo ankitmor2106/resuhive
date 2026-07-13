@@ -152,8 +152,11 @@
 
 @layer utilities {
   /* Resume preview paper — letter aspect ratio with realistic margins */
+  .resume-paper-container {
+    container-type: inline-size;
+  }
   .resume-paper {
-    aspect-ratio: 8.5 / 11;
+    min-height: calc(100cqw * 11 / 8.5);
     box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12), 0 1px 4px rgba(0, 0, 0, 0.08);
     color: hsl(210, 16%, 9%);
   }

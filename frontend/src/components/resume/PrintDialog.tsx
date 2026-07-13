@@ -43,6 +43,7 @@ export function PrintDialog({ resume, trigger }: { resume: any, trigger: React.R
         <!DOCTYPE html>
         <html>
           <head>
+            <base href="${window.location.origin}">
             ${styleTags}
             <style>
               @media print {

@@ -179,7 +179,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
     switch (templateId) {
       case 'rn-modern':
         return (
-          <div className={`resume-paper min-h-full max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-sans'} flex`}>
+          <div className={`resume-paper max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-sans'} flex`}>
             <div className={`w-1/3 bg-slate-50 ${spacingClass || 'p-8'} border-r border-slate-200 theme-bg-light`}>
               {personalInfo.photoUrl && (
                 <div className="w-32 h-32 rounded-full overflow-hidden shrink-0 mx-auto mb-6 shadow-md border-4 border-white">
@@ -219,7 +219,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'rn-classic':
         return (
-          <div className={`resume-paper ${spacingClass || 'p-8'} min-h-full max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-serif'}`}>
+          <div className={`resume-paper ${spacingClass || 'p-8'} max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-serif'}`}>
             <div className="flex flex-row items-center gap-6 mb-6">
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-gray-200">
@@ -246,7 +246,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'rn-accent':
         return (
-          <div className={`resume-paper min-h-full max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-sans'}`}>
+          <div className={`resume-paper max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-sans'}`}>
             <div className={`bg-indigo-700 text-white flex flex-row items-center gap-8 ${spacingClass || 'p-10'} mb-6 theme-bg`}>
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-4 border-white shadow-md">
@@ -272,7 +272,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'professional':
         return (
-          <div className={`resume-paper ${spacingClass || 'p-8'} min-h-full max-w-[850px] mx-auto text-gray-800 ${fontClass || 'font-sans'} border-t-8 border-indigo-900 theme-border-t bg-white`}>
+          <div className={`resume-paper ${spacingClass || 'p-8'} max-w-[850px] mx-auto text-gray-800 ${fontClass || 'font-sans'} border-t-8 border-indigo-900 theme-border-t bg-white`}>
             <div className="flex flex-row items-center gap-6 mb-6 pb-4 border-b-2 border-indigo-100 theme-border-light">
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-indigo-100">
@@ -296,7 +296,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'elegant':
         return (
-          <div className={`resume-paper ${spacingClass || 'p-10'} min-h-full max-w-[850px] mx-auto bg-rose-50/30 text-gray-800 ${fontClass || 'font-serif'}`}>
+          <div className={`resume-paper ${spacingClass || 'p-10'} max-w-[850px] mx-auto bg-rose-50/30 text-gray-800 ${fontClass || 'font-serif'}`}>
             <div className="flex flex-row items-center gap-8 mb-8">
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border border-rose-200">
@@ -321,7 +321,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'tech':
         return (
-          <div className={`resume-paper ${spacingClass || 'p-8'} min-h-full max-w-[850px] mx-auto bg-slate-900 text-slate-300 ${fontClass || 'font-mono'} border-l-4 border-green-500 theme-border-l theme-bg-dark`}>
+          <div className={`resume-paper ${spacingClass || 'p-8'} max-w-[850px] mx-auto bg-slate-900 text-slate-300 ${fontClass || 'font-mono'} border-l-4 border-green-500 theme-border-l theme-bg-dark`}>
             <div className="flex flex-row items-center gap-6 mb-8 pb-4 border-b border-slate-700 theme-border-light">
               {personalInfo.photoUrl && (
                 <div className="w-20 h-20 rounded-md overflow-hidden shrink-0 border border-green-500 opacity-90">
@@ -349,7 +349,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'bold':
         return (
-          <div className={`resume-paper min-h-full max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-sans'}`}>
+          <div className={`resume-paper max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-sans'}`}>
             <div className={`bg-black text-white ${spacingClass || 'p-8'} mb-6 theme-bg flex items-center gap-6`}>
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-none overflow-hidden shrink-0 border-4 border-white">
@@ -374,7 +374,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'modern':
         return (
-          <div className={`resume-paper ${spacingClass || 'p-8'} min-h-full max-w-[850px] mx-auto bg-slate-50 text-slate-900 border-t-8 border-t-blue-600 theme-border-t ${fontClass || 'font-sans'}`}>
+          <div className={`resume-paper ${spacingClass || 'p-8'} max-w-[850px] mx-auto bg-slate-50 text-slate-900 border-t-8 border-t-blue-600 theme-border-t ${fontClass || 'font-sans'}`}>
             <div className="flex flex-row items-center gap-8 mb-8 pb-6 border-b border-slate-300 theme-border-light">
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-lg overflow-hidden shrink-0 shadow-sm border border-slate-200">
@@ -399,7 +399,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'minimal':
         return (
-          <div className={`resume-paper ${spacingClass || 'p-12'} min-h-full max-w-[850px] mx-auto bg-white text-gray-800 ${fontClass || 'font-sans'}`}>
+          <div className={`resume-paper ${spacingClass || 'p-12'} max-w-[850px] mx-auto bg-white text-gray-800 ${fontClass || 'font-sans'}`}>
             <div className="mb-10 flex gap-6 items-center">
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border border-gray-200">
@@ -423,7 +423,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'creative':
         return (
-          <div className={`resume-paper min-h-full max-w-[850px] mx-auto bg-slate-50 text-gray-900 ${fontClass || 'font-sans'} flex`}>
+          <div className={`resume-paper max-w-[850px] mx-auto bg-slate-50 text-gray-900 ${fontClass || 'font-sans'} flex`}>
             <div className={`w-1/3 bg-teal-700 text-white ${spacingClass || 'p-8'} theme-bg`}>
               {personalInfo.photoUrl && (
                 <div className="w-32 h-32 rounded-full overflow-hidden shrink-0 mb-6 border-4 border-white mx-auto shadow-md">
@@ -447,7 +447,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'executive':
         return (
-          <div className={`resume-paper ${spacingClass || 'p-8'} min-h-full max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-serif'}`}>
+          <div className={`resume-paper ${spacingClass || 'p-8'} max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-serif'}`}>
             <div className="flex flex-row items-center gap-6 mb-6 border-b-4 border-gray-900 pb-4 theme-border">
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-sm overflow-hidden shrink-0 border-2 border-gray-900">
@@ -472,7 +472,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'grid-classic':
         return (
-          <div className={`resume-paper ${spacingClass || 'p-8'} min-h-full max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-sans'}`}>
+          <div className={`resume-paper ${spacingClass || 'p-8'} max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-sans'}`}>
             <div className="flex flex-row items-center gap-8 mb-8 pb-4 border-b border-gray-300 theme-border-light">
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border border-gray-300">
@@ -495,7 +495,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'grid-modern':
         return (
-          <div className={`resume-paper min-h-full max-w-[850px] mx-auto bg-white text-gray-900 border-[8px] border-blue-600 theme-border ${fontClass || 'font-sans'}`}>
+          <div className={`resume-paper max-w-[850px] mx-auto bg-white text-gray-900 border-[8px] border-blue-600 theme-border ${fontClass || 'font-sans'}`}>
             <div className={`bg-blue-600 text-white ${spacingClass || 'p-8'} mb-6 theme-bg flex items-center gap-6`}>
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-lg overflow-hidden shrink-0 border-4 border-white shadow-sm">
@@ -520,7 +520,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'profile-classic':
         return (
-          <div className={`resume-paper ${spacingClass || 'p-8'} min-h-full max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-sans'}`}>
+          <div className={`resume-paper ${spacingClass || 'p-8'} max-w-[850px] mx-auto bg-white text-gray-900 ${fontClass || 'font-sans'}`}>
             <div className="flex flex-row items-center gap-6 mb-8 pb-4 border-b border-gray-300 theme-border-light">
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-gray-200">
@@ -543,7 +543,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
         );
       case 'profile-modern':
         return (
-          <div className={`resume-paper min-h-full max-w-[850px] mx-auto bg-white text-gray-900 border-l-[12px] border-teal-600 theme-border-l ${fontClass || 'font-sans'}`}>
+          <div className={`resume-paper max-w-[850px] mx-auto bg-white text-gray-900 border-l-[12px] border-teal-600 theme-border-l ${fontClass || 'font-sans'}`}>
             <div className={`flex flex-col sm:flex-row bg-teal-50 ${spacingClass || 'p-8'} mb-6 border-b border-teal-100 theme-bg-light`}>
               {personalInfo.photoUrl && (
                 <div className="w-32 h-32 rounded-lg overflow-hidden shrink-0 shadow-sm border-4 border-white mb-4 sm:mb-0 sm:mr-8">
@@ -569,7 +569,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
       case 'classic':
       default:
         return (
-          <div className={`resume-paper ${spacingClass || 'p-8'} overflow-hidden w-full h-full max-w-[850px] mx-auto bg-white text-ink ${fontClass || 'font-sans'}`}>
+          <div className={`resume-paper ${spacingClass || 'p-8'} w-full max-w-[850px] mx-auto bg-white text-ink ${fontClass || 'font-sans'}`}>
             <div className="flex flex-row items-center gap-6 mb-6 border-b-2 border-ink pb-4 theme-border">
               {personalInfo.photoUrl && (
                 <div className="w-24 h-24 rounded-full overflow-hidden shrink-0 border-2 border-gray-200">
@@ -598,7 +598,7 @@ export function LivePreview({ resume }: LivePreviewProps) {
 
   return (
     <div 
-      className="w-full h-full"
+      className="resume-paper-container w-full h-full"
       style={primaryColor ? { '--primary-color': primaryColor } as React.CSSProperties : {}}
     >
       {primaryColor && (
