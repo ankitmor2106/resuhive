@@ -65,12 +65,12 @@ export class AnalysisProcessor extends WorkerHost {
       schema: {
         type: 'object',
         properties: {
-          professionalSummary: { $ref: '#/definitions/CategoryAssessment' },
-          workExperience: { $ref: '#/definitions/CategoryAssessment' },
-          skillsKeywords: { $ref: '#/definitions/CategoryAssessment' },
-          formattingStructure: { $ref: '#/definitions/CategoryAssessment' },
-          impactReadability: { $ref: '#/definitions/CategoryAssessment' },
-          projects: { $ref: '#/definitions/CategoryAssessment' },
+          professionalSummary: { $ref: '#/$defs/CategoryAssessment' },
+          workExperience: { $ref: '#/$defs/CategoryAssessment' },
+          skillsKeywords: { $ref: '#/$defs/CategoryAssessment' },
+          formattingStructure: { $ref: '#/$defs/CategoryAssessment' },
+          impactReadability: { $ref: '#/$defs/CategoryAssessment' },
+          projects: { $ref: '#/$defs/CategoryAssessment' },
           recruiterSnapshot: {
             type: 'object',
             properties: {
@@ -87,7 +87,7 @@ export class AnalysisProcessor extends WorkerHost {
           'formattingStructure', 'impactReadability', 'recruiterSnapshot'
         ],
         additionalProperties: false,
-        definitions: {
+        $defs: {
           CategoryAssessment: {
             type: 'object',
             properties: {
@@ -110,7 +110,15 @@ export class AnalysisProcessor extends WorkerHost {
     const eduScore = scoreEducation(resume);
 
     const result = combineATSScore(llmOutput, contactScore, eduScore);
-    const rankedCategories = rankByImpact(result.categories, result.categories); // Wait, this needs weights
+    const categoryWeights = {
+      professionalSummary: 1.5,
+      workExperience: 2.0,
+      skillsKeywords: 1.5,
+      formattingStructure: 1.0,
+      impactReadability: 1.0,
+      projects: 1.2
+    };
+    const rankedCategories = rankByImpact(result.categories, categoryWeights);
 
     // Save to DB
     await this.prisma.aTSAnalysis.create({
