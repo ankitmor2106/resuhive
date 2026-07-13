@@ -104,6 +104,8 @@ export class AnalysisProcessor extends WorkerHost {
       schemaName: 'ats_assessment',
       zodSchema: ATSLLMOutputSchema,
       model: 'gpt-oss-120b',
+      temperature: 0.7,
+      seed: Math.floor(Math.random() * 1000),
     });
 
     const contactScore = scoreContactInformation(resume);
@@ -130,13 +132,24 @@ export class AnalysisProcessor extends WorkerHost {
       },
     });
 
-    const categoriesArray = Object.entries(result.categories).map(([name, data]) => ({ name, ...data as any }));
+    const totalWeight = Object.keys(result.categories).reduce((sum, key) => sum + (categoryWeights[key as keyof typeof categoryWeights] || 1), 0);
+    
+    const categoriesArray = Object.entries(result.categories).map(([name, data]) => {
+      const w = categoryWeights[name as keyof typeof categoryWeights] || 1;
+      return { 
+        name, 
+        weight: Math.round((w / totalWeight) * 100),
+        ...data as any 
+      };
+    });
+    
+    const topRecommendations = rankedCategories.flatMap(c => c.suggestions).filter(Boolean);
     
     return {
       resumeId,
       overallScore: result.totalScore, // Legacy shape
       categories: categoriesArray,
-      recommendations: [], // Keep empty or populate from ranked
+      recommendations: topRecommendations,
       createdAt: new Date().toISOString(),
     };
   }

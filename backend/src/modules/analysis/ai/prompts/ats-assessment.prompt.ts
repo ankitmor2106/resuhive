@@ -60,9 +60,10 @@ Do NOT include an interview-probability percentage, a numeric "fit score" outsid
 ## RULES
 1. Return ONLY valid JSON matching the schema below. No markdown code fences, no preamble, no explanation outside the JSON.
 2. Every \`issues\` and \`suggestions\` entry must reference something SPECIFIC from the actual resume content — never generic advice. Bad: "Improve your summary." Good: "Your summary states you are 'detail-oriented' but doesn't back this with an example."
-3. If a section is empty or missing (and is not the optional \`projects\` category), score it accordingly and add exactly one issue explaining what's missing. Do not fabricate content to justify a higher score.
-4. If the resume is in a language other than English, evaluate in that language and return \`issues\`/\`suggestions\` in that language too.
-5. Never include or infer information (skills, dates, achievements) not explicitly present in the input.
+3. Every \`suggestions\` entry MUST be a highly detailed, actionable step telling the user EXACTLY what to change to increase their ATS score. Bad: "Add metrics." Good: "Rewrite the bullet point 'Developed new feature' to 'Developed a new React feature that increased user retention by 15% over 3 months'."
+4. If a section is empty or missing (and is not the optional \`projects\` category), score it accordingly and add exactly one issue explaining what's missing. Do not fabricate content to justify a higher score.
+5. If the resume is in a language other than English, evaluate in that language and return \`issues\`/\`suggestions\` in that language too.
+6. Never include or infer information (skills, dates, achievements) not explicitly present in the input.
 
 ## OUTPUT SCHEMA
 {
