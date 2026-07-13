@@ -24,13 +24,11 @@ export function PrintDialog({ resume, trigger }: { resume: any, trigger: React.R
     if (!printContent) return;
     
     const iframe = document.createElement('iframe');
-    iframe.style.position = 'fixed';
-    iframe.style.right = '0';
-    iframe.style.bottom = '0';
+    iframe.style.position = 'absolute';
     iframe.style.width = '850px';
     iframe.style.height = '1100px';
-    iframe.style.opacity = '0';
-    iframe.style.pointerEvents = 'none';
+    iframe.style.top = '-9999px';
+    iframe.style.left = '-9999px';
     iframe.style.border = '0';
     document.body.appendChild(iframe);
     

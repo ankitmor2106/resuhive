@@ -203,9 +203,14 @@
     box-shadow: none !important;
   }
   
+  .resume-paper-container {
+    container-type: normal !important;
+  }
+
   .resume-paper {
     width: 100% !important;
     height: auto !important;
+    min-height: 0 !important;
     max-width: none !important;
     aspect-ratio: auto !important; /* Let content dictate height for printing */
     box-shadow: none !important;
