@@ -75,8 +75,8 @@ export class AnalysisProcessor extends WorkerHost {
             type: 'object',
             properties: {
               firstImpression: { type: 'string' },
-              strengths: { type: 'array', items: { type: 'string' }, minItems: 1, maxItems: 4 },
-              watchOuts: { type: 'array', items: { type: 'string' }, minItems: 1, maxItems: 4 },
+              strengths: { type: 'array', items: { type: 'string' } },
+              watchOuts: { type: 'array', items: { type: 'string' } },
             },
             required: ['firstImpression', 'strengths', 'watchOuts'],
             additionalProperties: false,
