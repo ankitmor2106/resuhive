@@ -4,9 +4,13 @@ import { JwtService } from '@nestjs/jwt';
 import { ConfigService } from '@nestjs/config';
 import * as argon2 from 'argon2';
 import * as crypto from 'crypto';
+import * as dns from 'dns';
+import { promisify } from 'util';
 import { RegisterDto, LoginDto, ResetPasswordDto, UpdateProfileDto, UpdatePasswordDto } from './dto/auth.dto';
 import { PrismaService } from '../../prisma/prisma.service';
 import { MailService } from '../mail/mail.service';
+
+const resolveMx = promisify(dns.resolveMx);
 
 @Injectable()
 export class AuthService {
@@ -30,6 +34,19 @@ export class AuthService {
   }
 
   async register(registerDto: RegisterDto) {
+    // Validate if the email domain actually exists and can receive emails
+    const domain = registerDto.email.split('@')[1];
+    if (domain) {
+      try {
+        const mxRecords = await resolveMx(domain);
+        if (!mxRecords || mxRecords.length === 0) {
+          throw new Error('No MX records');
+        }
+      } catch (error) {
+        throw new BadRequestException({ code: 'AUTH_006', message: 'Invalid email domain. Please provide a real email address.' });
+      }
+    }
+
     const existingUser = await this.usersService.findByEmail(registerDto.email);
     if (existingUser) {
       throw new BadRequestException({ code: 'AUTH_003', message: 'Email already in use' });

@@ -56,6 +56,7 @@ export const metadata: Metadata = {
 }
 
 import { GlobalFooter } from '@/components/layout/GlobalFooter'
+import { Analytics } from "@vercel/analytics/next"
 
 export default function RootLayout({
   children,
@@ -75,6 +76,7 @@ export default function RootLayout({
           </div>
           <GlobalFooter />
         </Providers>
+        <Analytics />
       </body>
     </html>
   )
